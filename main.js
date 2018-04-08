@@ -47,7 +47,7 @@ function createWindow() {
         if (deviceOnline) {
             setButtons(buttons);
         }
-        evt.sender.send('set-buttons', {buttons, deviceOnline});
+        evt.sender.send('set-buttons', { buttons, deviceOnline });
     });
 }
 app.on('ready', createWindow)

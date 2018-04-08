@@ -4,7 +4,7 @@ const remote = require('electron').remote;
 const { ipcRenderer } = require('electron');
 const dialog = remote.dialog;
 
-ipcRenderer.on('set-buttons', (evt, {buttons, deviceOnline}) => {
+ipcRenderer.on('set-buttons', (evt, { buttons, deviceOnline }) => {
     const app = new Vue({
         el: '#el-app',
         data: {
