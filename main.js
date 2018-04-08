@@ -32,7 +32,8 @@ function createWindow() {
         mainWindow = null
     })
 
-    ipcMain.on('sync-settings', (evt, buttons) => {
+    ipcMain.on('sync-settings', (evt, btns) => {
+        buttons = btns;
         try {
             fs.writeFileSync(CONFIGFILE, JSON.stringify(buttons), 'utf-8');
             setButtons(buttons);
@@ -42,8 +43,11 @@ function createWindow() {
     });
 
     ipcMain.on('ping', (evt) => {
-        setButtons(buttons);
-        evt.sender.send('set-buttons', {buttons, deviceOnline: device && true || false});
+        const deviceOnline = device && true || false;
+        if (deviceOnline) {
+            setButtons(buttons);
+        }
+        evt.sender.send('set-buttons', {buttons, deviceOnline});
     });
 }
 app.on('ready', createWindow)
@@ -51,6 +55,8 @@ app.on('window-all-closed', function () {
     if (process.platform !== 'darwin') {
         app.quit()
     }
+    ipcMain.removeAllListeners('ping');
+    ipcMain.removeAllListeners('sync-settings');
 })
 
 app.on('quit', () => {
@@ -80,7 +86,6 @@ const setButtons = buttons => {
 }
 
 if (device) {
-    // setButtons(buttons);
     device.on("up", keyIndex => {
         const command = buttons[keyIndex].command;
         if (!command) {
