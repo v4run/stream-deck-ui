@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Stream Deck</title>
+    <link rel="stylesheet" href="./src/styles/style.css">
+</head>
+
+<body style="-webkit-app-region: drag">
+    <div id="el-app">
+        <div class="container button-container">
+            <div class="alert error" v-if="!deviceOnline">No Stream Deck detected.</div>
+            <div v-if="deviceOnline">
+                <span class="title">STREAM DECK</span>
+                <button class="button set-button" v-on:click="syncSettings">Set</button>
+            </div>
+            <draggable class="row" :options="{}" :value="buttons" @end="end" :move="move">
+                <div class="button" v-bind:style="{backgroundImage: button.icon && 'url('+button.icon+')'}" v-for="(button, index) in buttons"
+                    v-on:click="select(index)"></div>
+            </draggable>
+        </div>
+        <div class="container control-container" v-if="selected">
+            <button class="button clear-button" v-on:click="clearSelected">Clear</button>
+            <div class="controls">
+                <input type="text" placeholder="Name" v-model="selected.name" name="name">
+            </div>
+            <div class="controls">
+                <input v-on:click="selectFile('icon', ['png'])" readonly type="text" placeholder="Icon" v-model="selected.icon" name="icon">
+            </div>
+            <div class="controls">
+                <input v-on:click="selectFile('command')" type="text" placeholder="Command" v-model="selected.command" name="command">
+            </div>
+        </div>
+    </div>
+    <script>
+        require('./renderer.js');
+    </script>
+</body>
+
+</html>

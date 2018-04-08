@@ -1,0 +1,23 @@
+{
+  "name": "stream-deck",
+  "version": "1.0.0",
+  "description": "Configure stream deck",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "",
+  "keywords": [
+    "Electron",
+    "streamdeck"
+  ],
+  "author": "Varun Vasan V",
+  "devDependencies": {
+    "electron": "^1.8.4"
+  },
+  "dependencies": {
+    "elgato-stream-deck": "^2.1.1",
+    "vue": "^2.5.16",
+    "vuedraggable": "^2.16.0"
+  }
+}
