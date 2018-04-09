@@ -110,14 +110,14 @@ body {
     padding: 0;
 }
 
-.container .row .button {
+.container .row .command-button {
     -webkit-app-region: no-drag;
     background-size: cover;
     background-repeat: no-repeat;
     text-align: center;
     color: white;
     border-radius: 5px;
-    cursor: pointer;
+    cursor: -webkit-grab;
     margin: 5px;
     list-style-type: none;
     float: right;
@@ -125,4 +125,12 @@ body {
     width: 70px;
     height: 70px;
     background-color: #101b47;
+}
+
+.container .row .command-button:active {
+    cursor: -webkit-grabbing;
+}
+
+.container .row .button.command-button.selected {
+    border-color: #2860ab;
 }

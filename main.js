@@ -17,7 +17,7 @@ try {
     console.error(err);
     buttons = new Array(MAXBUTTONS);
     for (let i = 0; i < MAXBUTTONS; i++) {
-        buttons[i] = { name: '', icon: '', command: '' };
+        buttons[i] = { id: i, name: '', icon: '', command: '' };
     }
 }
 

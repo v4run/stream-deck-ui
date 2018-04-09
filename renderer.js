@@ -34,7 +34,6 @@ ipcRenderer.on('set-buttons', (evt, { buttons, deviceOnline }) => {
                 const vm = this;
                 dialog.showOpenDialog({
                     properties: ['openFile'],
-
                     filters: [
                         {
                             name: 'Images',

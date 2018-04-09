@@ -18,7 +18,7 @@
                 <button class="button set-button" v-on:click="syncSettings">Set</button>
             </div>
             <draggable class="row" :options="{}" :value="buttons" @end="end" :move="move">
-                <div class="button" v-bind:style="{backgroundImage: button.icon && 'url('+button.icon+')'}" v-for="(button, index) in buttons"
+                <div class="button command-button" v-bind:style="{backgroundImage: button.icon && 'url('+button.icon+')'}" v-bind:class="{ selected: selected.id == button.id }" v-for="(button, index) in buttons"
                     v-on:click="select(index)"></div>
             </draggable>
         </div>
