@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 const StreamDeck = require("elgato-stream-deck");
 const fs = require('fs');
 

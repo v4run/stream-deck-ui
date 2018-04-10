@@ -13,10 +13,12 @@
   ],
   "author": "Varun Vasan V",
   "devDependencies": {
-    "electron": "^1.8.4"
+    "electron": "^1.8.4",
+    "electron-rebuild": "^1.7.3"
   },
   "dependencies": {
     "elgato-stream-deck": "^2.1.1",
+    "sharp": "^0.20.1",
     "vue": "^2.5.16",
     "vuedraggable": "^2.16.0"
   }

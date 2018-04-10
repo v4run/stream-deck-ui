@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 const Vue = require('vue/dist/vue.js');
 const draggable = require('vuedraggable');
 const remote = require('electron').remote;

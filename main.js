@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 const { app, ipcMain, BrowserWindow } = require('electron');
 const path = require('path');
 const url = require('url');
@@ -29,8 +30,8 @@ function createWindow() {
         slashes: true
     }))
     mainWindow.on('closed', function () {
-        mainWindow = null
-    })
+        mainWindow = null;
+    });
 
     ipcMain.on('sync-settings', (evt, btns) => {
         buttons = btns;
